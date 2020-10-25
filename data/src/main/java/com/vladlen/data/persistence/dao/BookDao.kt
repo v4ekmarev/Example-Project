@@ -8,7 +8,6 @@ import com.vladlen.data.persistence.entity.BookEntity
 import com.vladlen.data.persistence.entity.BookEntity.Companion.BOOK_ID
 import com.vladlen.data.persistence.entity.BookEntity.Companion.BOOK_IS_FAVORITE
 import com.vladlen.data.persistence.entity.BookEntity.Companion.BOOK_TABLE
-import com.vladlen.data.persistence.entity.BookEntity.Companion.BOOK_USER_NAME
 
 @Dao
 abstract class BookDao : BaseDao<BookEntity> {
@@ -25,8 +24,8 @@ abstract class BookDao : BaseDao<BookEntity> {
      * Select all books by the userName
      * @return A list of [BookEntity] of all the books in the table for user
      */
-    @Query("SELECT * FROM $BOOK_TABLE WHERE $BOOK_USER_NAME = :userName")
-    abstract fun getAll(userName: String): List<BookEntity>
+    @Query("SELECT * FROM $BOOK_TABLE")
+    abstract fun getAll(): List<BookEntity>
 
     /**
      * Update is favorite book by the id

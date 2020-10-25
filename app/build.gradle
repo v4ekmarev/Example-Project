@@ -42,7 +42,7 @@ android {
 
 dependencies {
     // MODULE
-//    implementation project(':data')
+    implementation project(':data')
     implementation project(':domain')
     // KOTLIN
     implementation kotlinStdlib

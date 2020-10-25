@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.vladlen.data.di.providers.NetworkChecker
 import com.vladlen.data.net.OkHttpClientFactory
 import com.vladlen.data.net.RetrofitFactory
+import com.vladlen.data.net.api.GoogleBooksApi
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -34,4 +35,8 @@ class NetModule {
     ): Retrofit =
         RetrofitFactory.getRetrofit(context, gson, okHttpClientFactory)
 
+    @Singleton
+    @Provides
+    internal fun provideApiClient(retrofit: Retrofit): GoogleBooksApi =
+        retrofit.create(GoogleBooksApi::class.java)
 }

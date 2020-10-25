@@ -1,11 +1,14 @@
 package com.vladlen.exmapleproject
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
+import com.vladlen.exmapleproject.scenes.base.BaseActivity
+import com.vladlen.exmapleproject.scenes.booklist.BookListFragment
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : BaseActivity(R.layout.activity_main) {
+
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+        supportFragmentManager.beginTransaction().replace(R.id.container, BookListFragment.newInstance()).commit()
     }
 }

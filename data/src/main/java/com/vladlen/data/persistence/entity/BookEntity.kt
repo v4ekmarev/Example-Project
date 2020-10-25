@@ -24,6 +24,5 @@ class BookEntity(
         const val BOOK_DESCRIPTION = "description"
         const val BOOK_URL = "url"
         const val BOOK_IS_FAVORITE = "is_favorite"
-        const val BOOK_USER_NAME = "user_name"
     }
 }
