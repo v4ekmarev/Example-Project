@@ -1,0 +1,14 @@
+plugins {
+    id 'kotlin'
+}
+
+dependencies {
+    // KOTLIN
+    implementation kotlinStdlib
+    // RX
+    implementation rxJava
+    implementation rxKotlin
+    // CODE GENERATION
+    implementation dagger
+
+}
