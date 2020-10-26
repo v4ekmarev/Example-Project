@@ -14,9 +14,28 @@ class GetBookListUseCase @Inject constructor(
 ) : SingleUseCase<Collection<Book>, String>(useCaseScheduler) {
 
     override fun build(param: String): Single<Collection<Book>> {
-        val cacheSingle = bookRepository.getCashedBookList(param)
+        val cacheFavoriteSingle =
+            bookRepository.getCashedFavoriteListBook(true).firstOrError().cache()
 
-        val netSingle = bookRepository.getBookList(param)
+        val cacheSingle = bookRepository.getCashedBookList(param).zipWith(cacheFavoriteSingle,
+            { cacheBook, cacheFavoriteBook ->
+                cacheBook.forEach { book ->
+                    cacheFavoriteBook.find { favoriteBook ->
+                        favoriteBook.id == book.id
+                    }?.isFavorite = true
+                }
+                return@zipWith cacheBook
+            })
+
+        val netSingle = bookRepository.getBookList(param).zipWith(cacheFavoriteSingle,
+            { netBook, cacheFavoriteBook ->
+                cacheFavoriteBook.forEach { book ->
+                    netBook.find { favoriteBook ->
+                        favoriteBook.id == book.id
+                    }?.isFavorite = true
+                }
+                return@zipWith netBook
+            })
 
 //        example for remote get and local save
 //        val netSingle = bookRepository.getBookList(param)
