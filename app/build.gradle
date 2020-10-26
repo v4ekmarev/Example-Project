@@ -18,12 +18,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
         }
-//        debug {
-//            minifyEnabled true
-////            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
-//            applicationIdSuffix '.debug'
-//            versionNameSuffix '-DEBUG'
-//        }
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-DEBUG'
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

@@ -10,7 +10,7 @@ import retrofit2.http.Query
 
 interface GoogleBooksApi {
 
-    @GET("?maxResults=10")
+    @GET("?maxResults=20")
     fun getListBooks(@Query("q") query: String): Single<BookListDto>
 
     @GET("{id}")
