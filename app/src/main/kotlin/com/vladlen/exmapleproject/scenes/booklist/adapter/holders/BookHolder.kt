@@ -33,7 +33,7 @@ class BookHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         view.setImageDrawable(
             ContextCompat.getDrawable(
                 itemView.context,
-                if (book.isFavorite) R.drawable.heart_full else R.drawable.heart_empty
+                if (book.isFavorite) R.drawable.ic_heart_full else R.drawable.ic_heart_empty
             )
         )
     }

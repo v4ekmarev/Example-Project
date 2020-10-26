@@ -37,7 +37,7 @@ class BookListViewModel @Inject constructor(
     fun updateFavoriteBook(book: Book) {
         saveFavoriteBookUseCase.execute(book)
             .doOnSubscribe {
-                bookListLiveData.value = ResultState.Loading
+                updateFavoriteBookLiveData.value = ResultState.Loading
                 compositeDisposable.add(it)
             }
             .subscribe({

@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.framgnet_book_list.*
 
 class BookListFragment : BaseFragment(R.layout.framgnet_book_list) {
 
-    private val storeViewModel: BookListViewModel by viewModels {
+    private val bookViewModel: BookListViewModel by viewModels {
         viewModelFactory
     }
 
@@ -43,11 +43,11 @@ class BookListFragment : BaseFragment(R.layout.framgnet_book_list) {
 
         booksAdapter.setOnFavoriteClickListener(object : OnClickItem<Book> {
             override fun click(view: View, item: Book) {
-                storeViewModel.updateFavoriteBook(item)
+                bookViewModel.updateFavoriteBook(item)
             }
         })
 
-        storeViewModel.getBookListLiveData().observe(viewLifecycleOwner, {
+        bookViewModel.getBookListLiveData().observe(viewLifecycleOwner, {
             when (it) {
                 is ResultState.Loading -> {
                     pb_load_book.visibility = View.VISIBLE
@@ -62,7 +62,7 @@ class BookListFragment : BaseFragment(R.layout.framgnet_book_list) {
             }
         })
 
-        storeViewModel.getUpdateStateFavoriteBookLiveData().observe(viewLifecycleOwner, {
+        bookViewModel.getUpdateStateFavoriteBookLiveData().observe(viewLifecycleOwner, {
             when (it) {
                 is ResultState.Loading -> {
 
@@ -76,7 +76,7 @@ class BookListFragment : BaseFragment(R.layout.framgnet_book_list) {
             }
         })
 
-        storeViewModel.fetchBookList("Book")
+        bookViewModel.fetchBookList("Book")
     }
 
 }
