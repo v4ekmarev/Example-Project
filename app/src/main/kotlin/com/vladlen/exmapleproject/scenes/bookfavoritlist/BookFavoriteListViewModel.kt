@@ -11,6 +11,7 @@ import javax.inject.Inject
 class BookFavoriteListViewModel @Inject constructor(
     private val getFavoriteBookUseCase: GetFavoriteBookUseCase,
     private val saveFavoriteBookUseCase: SaveFavoriteBookUseCase,
+    private val router: BookFavoriteListRouter
     ) : BaseViewModel() {
 
     private var favoriteBookListLiveData = MutableLiveData<ResultState<Collection<Book>>>()
@@ -42,4 +43,6 @@ class BookFavoriteListViewModel @Inject constructor(
 
             })
     }
+
+    fun router() : BookFavoriteListRouter = router
 }

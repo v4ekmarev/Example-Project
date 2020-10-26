@@ -12,12 +12,12 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        supportFragmentManager.beginTransaction().add(R.id.container, BookListFragment.newInstance()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.container, BookListFragment.newInstance()).commit()
 
         topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.favorite -> {
-                    supportFragmentManager.beginTransaction().add(R.id.container, BookFavoriteListFragment.newInstance()).addToBackStack(null).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.container, BookFavoriteListFragment.newInstance()).commit()
                     true
                 }
                 R.id.search -> {
