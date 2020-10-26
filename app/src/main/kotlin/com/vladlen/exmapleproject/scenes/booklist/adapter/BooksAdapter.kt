@@ -24,7 +24,7 @@ class BooksAdapter : RecyclerView.Adapter<BookHolder>() {
         this.onClickItem = onClickItem
     }
 
-    fun setOnLikedClickListener(onClickItem: OnClickItem<Book>) {
+    fun setOnFavoriteClickListener(onClickItem: OnClickItem<Book>) {
         this.onClickFavorite = onClickItem
     }
 

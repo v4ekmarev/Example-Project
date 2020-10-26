@@ -5,5 +5,5 @@ data class Book(
     val title: String,
     val link: String,
     val imgLink: String,
-    val isFavorite: Boolean,
+    var isFavorite: Boolean,
 )

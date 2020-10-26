@@ -3,14 +3,13 @@ package com.vladlen.exmapleproject.scenes.booklist
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vladlen.domain.model.Book
 import com.vladlen.exmapleproject.R
 import com.vladlen.exmapleproject.extensions.build
 import com.vladlen.exmapleproject.scenes.base.BaseFragment
-import com.vladlen.exmapleproject.scenes.bookfavoritlist.BookFavoriteListFragment
 import com.vladlen.exmapleproject.scenes.booklist.adapter.BooksAdapter
+import com.vladlen.exmapleproject.scenes.view.OnClickItem
 import com.vladlen.exmapleproject.scenes.view.ResultState
 import kotlinx.android.synthetic.main.framgnet_book_list.*
 
@@ -42,7 +41,13 @@ class BookListFragment : BaseFragment(R.layout.framgnet_book_list) {
             layoutManager = LinearLayoutManager(requireContext())
         }
 
-        storeViewModel.getBookListLiveData().observe(viewLifecycleOwner, Observer {
+        booksAdapter.setOnFavoriteClickListener(object : OnClickItem<Book> {
+            override fun click(view: View, item: Book) {
+                storeViewModel.updateFavoriteBook(item)
+            }
+        })
+
+        storeViewModel.getBookListLiveData().observe(viewLifecycleOwner, {
             when (it) {
                 is ResultState.Loading -> {
                     pb_load_book.visibility = View.VISIBLE
@@ -53,6 +58,20 @@ class BookListFragment : BaseFragment(R.layout.framgnet_book_list) {
                 }
                 is ResultState.Error -> {
                     pb_load_book.visibility = View.INVISIBLE
+                }
+            }
+        })
+
+        storeViewModel.getUpdateStateFavoriteBookLiveData().observe(viewLifecycleOwner, {
+            when (it) {
+                is ResultState.Loading -> {
+
+                }
+                is ResultState.Success -> {
+
+                }
+                is ResultState.Error -> {
+
                 }
             }
         })
