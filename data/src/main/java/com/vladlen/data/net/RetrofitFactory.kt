@@ -7,13 +7,13 @@ import androidx.annotation.RequiresPermission
 import com.google.gson.Gson
 
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitFactory {
 
     // Base URL: always ends with /
-    private const val URL_MAIN_WEBSERVICE ="https://www.googleapis.com/books/v1/volumes/"
+    private const val URL_MAIN_WEBSERVICE = "https://www.googleapis.com/books/v1/volumes/"
 
     /**
      * Get [Retrofit] instance.
@@ -26,7 +26,7 @@ object RetrofitFactory {
         okHttpClientFactory: OkHttpClientFactory
     ): Retrofit =
         Retrofit.Builder()
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .baseUrl(URL_MAIN_WEBSERVICE)
             .client(okHttpClientFactory.createOkHttpClient(context))

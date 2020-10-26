@@ -48,6 +48,7 @@ ext {
     roomVersion                 = '2.2.5'
     room                        = "androidx.room:room-runtime:$roomVersion"
     roomCompiler                = "androidx.room:room-compiler:$roomVersion"
+    roomRX                      = "androidx.room:room-rxjava2:$roomVersion"
 
     // DAGGER
     daggerVersion               = '2.29.1'
@@ -55,20 +56,17 @@ ext {
     daggerCompiler              = "com.google.dagger:dagger-compiler:$daggerVersion"
 
     // RX
-    rxAndroidVersion            = '3.0.0'
-    rxJavaVersion               = '3.0.4'
-    rxKotlinVersion             = '3.0.1'
-    rxBindingVersion            = '4.0.0'
-    rxAndroid                   = "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion"
-    rxJava                      = "io.reactivex.rxjava3:rxjava:$rxJavaVersion"
-    rxKotlin                    = "io.reactivex.rxjava3:rxkotlin:$rxKotlinVersion"
+    rxAndroidVersion            = '2.1.1'
+    rxKotlinVersion             = '2.4.0'
+    rxAndroid                   = "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    rxKotlin                    = "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
 
     // WEBSERVICES
     retrofitVersion             = '2.9.0'
     okHttpVersion               = '3.11.0'
     okhttpLoginInterceptor      = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     retrofitConverterGson       = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    retrofitAdapterRxJava       = "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
+    retrofitAdapterRxJava       = "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
 
     // DEBUG
     timberVersion               = '4.7.1'

@@ -2,7 +2,7 @@ package com.vladlen.data.net.api
 
 import com.vladlen.data.net.dto.BookDTO
 import com.vladlen.domain.model.Book
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
 

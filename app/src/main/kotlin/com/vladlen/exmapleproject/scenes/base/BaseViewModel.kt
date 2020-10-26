@@ -1,7 +1,7 @@
 package com.vladlen.exmapleproject.scenes.base
 
 import androidx.lifecycle.ViewModel
-import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.disposables.CompositeDisposable
 
 open class BaseViewModel : ViewModel() {
     protected val compositeDisposable = CompositeDisposable()

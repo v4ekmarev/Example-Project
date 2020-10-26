@@ -46,8 +46,9 @@ dependencies {
     kapt daggerCompiler
     // RX
     implementation rxAndroid
-    implementation rxJava
+//    implementation rxJava
     implementation rxKotlin
+    implementation roomRX
     // WEBSERVICES
     implementation retrofitConverterGson
     implementation retrofitAdapterRxJava

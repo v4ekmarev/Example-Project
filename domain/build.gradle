@@ -6,9 +6,9 @@ dependencies {
     // KOTLIN
     implementation kotlinStdlib
     // RX
-    implementation rxJava
+//    implementation rxJava
     implementation rxKotlin
+    implementation roomRX
     // CODE GENERATION
     implementation dagger
-
 }

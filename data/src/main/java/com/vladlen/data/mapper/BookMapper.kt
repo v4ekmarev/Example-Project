@@ -27,7 +27,7 @@ class BookMapper
      * @param userName          Foreign key
      * @return list of [Book]
      */
-    fun transform(dtoCollection: Collection<BookDTO>, userName: String): List<Book> =
+    fun transformDto(dtoCollection: Collection<BookDTO>): List<Book> =
         dtoCollection.map { transform(it) }
     //endregion
 
@@ -51,7 +51,7 @@ class BookMapper
      * @param entityCollection Object Collection to be transformed.
      * @return list of [Book]
      */
-    fun transform(entityCollection: Collection<BookEntity>): List<Book> =
+    fun transformEntity(entityCollection: Collection<BookEntity>): List<Book> =
         entityCollection.map { transform(it) }
     //endregion
 

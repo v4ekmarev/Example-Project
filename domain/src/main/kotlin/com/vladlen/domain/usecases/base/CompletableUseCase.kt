@@ -1,6 +1,7 @@
 package com.vladlen.domain.usecases.base
 
-import io.reactivex.rxjava3.core.Completable
+import io.reactivex.Completable
+
 
 abstract class CompletableUseCase<in P>
 constructor(
@@ -8,10 +9,10 @@ constructor(
 ) : UseCase<Completable, P>() {
 
     override fun execute(param: P): Completable =
-            super.execute(param)
-                    .apply {
-                        useCaseScheduler?.let {
-                            this.subscribeOn(it.run).observeOn(it.post)
-                        }
-                    }
+        super.execute(param)
+            .compose { transformer ->
+                useCaseScheduler?.let {
+                    transformer.subscribeOn(it.run).observeOn(it.post)
+                } ?: transformer
+            }
 }

@@ -1,22 +1,22 @@
-package com.vladlen.data.di.modules
+package com.vladlen.exmapleproject.di.modules
 
 import com.vladlen.domain.usecases.base.UseCaseScheduler
+import com.vladlen.exmapleproject.di.PerApplication
 import dagger.Module
 import dagger.Provides
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Scheduler
-import io.reactivex.rxjava3.schedulers.Schedulers
-import javax.inject.Singleton
+import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 @Module
 class UseCaseModule {
 
     @Provides
-    @Singleton
+    @PerApplication
     internal fun providePostScheduler() = AndroidSchedulers.mainThread()
 
     @Provides
-    @Singleton
+    @PerApplication
     internal fun provideUseCaseScheduler(postScheduler: Scheduler) =
         UseCaseScheduler(Schedulers.io(), postScheduler)
 

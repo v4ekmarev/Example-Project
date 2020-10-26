@@ -2,7 +2,7 @@ package com.vladlen.exmapleproject.di.components
 
 import android.app.Application
 import com.vladlen.data.di.components.DataComponent
-import com.vladlen.data.di.modules.UseCaseModule
+import com.vladlen.exmapleproject.di.modules.UseCaseModule
 import com.vladlen.exmapleproject.di.PerApplication
 import com.vladlen.exmapleproject.di.modules.ApplicationModule
 import dagger.BindsInstance
