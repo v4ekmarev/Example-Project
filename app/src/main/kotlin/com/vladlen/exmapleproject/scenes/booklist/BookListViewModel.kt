@@ -1,6 +1,5 @@
 package com.vladlen.exmapleproject.scenes.booklist
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.vladlen.domain.model.Book
 import com.vladlen.domain.usecases.GetBookListUseCase
@@ -19,7 +18,8 @@ class BookListViewModel @Inject constructor(
 
     fun getBookListLiveData(): MutableLiveData<ResultState<Collection<Book>>> = bookListLiveData
 
-    fun getUpdateStateFavoriteBookLiveData(): MutableLiveData<ResultState<Book>> = updateFavoriteBookLiveData
+    fun getUpdateStateFavoriteBookLiveData(): MutableLiveData<ResultState<Book>> =
+        updateFavoriteBookLiveData
 
     fun fetchBookList(query: String = "Book") {
         getBookListUseCase.execute(query)

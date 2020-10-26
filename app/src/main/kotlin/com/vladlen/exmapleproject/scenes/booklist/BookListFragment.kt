@@ -62,21 +62,6 @@ class BookListFragment : BaseFragment(R.layout.framgnet_book_list) {
             }
         })
 
-        bookViewModel.getUpdateStateFavoriteBookLiveData().observe(viewLifecycleOwner, {
-            when (it) {
-                is ResultState.Loading -> {
-
-                }
-                is ResultState.Success -> {
-
-                }
-                is ResultState.Error -> {
-
-                }
-            }
-        })
-
         bookViewModel.fetchBookList("Book")
     }
-
 }

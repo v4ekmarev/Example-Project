@@ -8,6 +8,7 @@ import com.vladlen.domain.model.Book
 import com.vladlen.exmapleproject.R
 import com.vladlen.exmapleproject.extensions.build
 import com.vladlen.exmapleproject.scenes.base.BaseFragment
+import com.vladlen.exmapleproject.scenes.booklist.BookListRouter
 import com.vladlen.exmapleproject.scenes.booklist.adapter.BooksAdapter
 import com.vladlen.exmapleproject.scenes.view.OnClickItem
 import com.vladlen.exmapleproject.scenes.view.ResultState
