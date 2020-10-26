@@ -7,10 +7,10 @@ import com.vladlen.data.persistence.entity.BookEntity.Companion.BOOK_TABLE
 
 @Entity(tableName = BOOK_TABLE)
 class BookEntity(
-    @PrimaryKey @ColumnInfo(name = BOOK_ID) val id: Long,
-    @ColumnInfo(name = BOOK_NAME) val authorName: String,
-    @ColumnInfo(name = BOOK_DESCRIPTION) val description: String,
+    @PrimaryKey @ColumnInfo(name = BOOK_ID) val id: String,
+    @ColumnInfo(name = BOOK_TITLE) val authorName: String,
     @ColumnInfo(name = BOOK_URL) val link: String,
+    @ColumnInfo(name = BOOK_URL_IMG) val imgLink: String,
     @ColumnInfo(name = BOOK_IS_FAVORITE) val isFavorite: Boolean
 ) {
 
@@ -20,9 +20,9 @@ class BookEntity(
 
         // COLUMN
         const val BOOK_ID = "id"
-        const val BOOK_NAME = "name"
-        const val BOOK_DESCRIPTION = "description"
-        const val BOOK_URL = "url"
+        const val BOOK_TITLE = "title"
+        const val BOOK_URL = "link"
+        const val BOOK_URL_IMG = "img_link"
         const val BOOK_IS_FAVORITE = "is_favorite"
     }
 }

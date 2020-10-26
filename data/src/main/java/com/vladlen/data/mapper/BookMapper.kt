@@ -19,12 +19,11 @@ class BookMapper
      * @return [Book] if valid [BookDTO]
      */
     fun transform(dto: BookDTO): Book =
-        Book(dto.id, dto.name, dto.description, dto.url, false)
+        Book(dto.id, dto.volumeInfo.title, dto.url, dto.volumeInfo.imageLinks.thumbnail, false)
 
     /**
      * Transform a Collection of [BookDTO] into a List of [Book].
      * @param dtoCollection Object Collection to be transformed.
-     * @param userName          Foreign key
      * @return list of [Book]
      */
     fun transformDto(dtoCollection: Collection<BookDTO>): List<Book> =
@@ -41,8 +40,8 @@ class BookMapper
         Book(
             entity.id,
             entity.authorName,
-            entity.description,
             entity.link,
+            entity.imgLink,
             entity.isFavorite,
         )
 
@@ -64,10 +63,10 @@ class BookMapper
     fun transformToEntity(model: Book): BookEntity =
         BookEntity(
             model.id,
-            model.authorName,
-            model.description,
+            model.title,
             model.link,
-            model.isFavorite,
+            model.imgLink,
+            model.isFavorite
         )
 
     /**

@@ -1,2 +1,2 @@
--keep class com.mikhaellopez.domain.model.** { *; }
--keep class com.mikhaellopez.data.net.dto.** { *; }
+-keep class com.vladlen.domain.model.** { *; }
+-keep class com.vladlen.data.net.dto.** { *; }

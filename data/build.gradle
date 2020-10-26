@@ -15,7 +15,6 @@ android {
     buildTypes {
         debug {
             minifyEnabled true
-            consumerProguardFiles modelRules, supportRules, apacheRules, gsonRules, okhttp3Rules, retrofit2Rules, stethoRules
         }
         release {
             minifyEnabled true
@@ -46,11 +45,11 @@ dependencies {
     kapt daggerCompiler
     // RX
     implementation rxAndroid
-//    implementation rxJava
     implementation rxKotlin
     implementation roomRX
     // WEBSERVICES
     implementation retrofitConverterGson
     implementation retrofitAdapterRxJava
-
+    implementation okhttpLoginInterceptor
+    implementation chuckDebug
 }

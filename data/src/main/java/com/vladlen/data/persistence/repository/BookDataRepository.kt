@@ -8,6 +8,7 @@ import com.vladlen.domain.model.Book
 import com.vladlen.domain.repository.BookRepository
 import io.reactivex.Completable
 import io.reactivex.Flowable
+import io.reactivex.Observable
 import io.reactivex.Single
 import javax.inject.Inject
 
@@ -27,6 +28,12 @@ class BookDataRepository @Inject constructor(
     //region LIST BOOK
     override fun getBookList(query: String): Single<List<Book>> {
         return googleBooksApi.getListBooks(query)
+            .flatMap { bookListDto ->
+                return@flatMap Observable.fromIterable(bookListDto.items)
+                    .flatMapSingle { bookDto ->
+                        googleBooksApi.getBook(bookDto.id)
+                    }.toList()
+            }
             .map {
                 bookMapper.transformDto(it)
             }

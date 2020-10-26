@@ -18,12 +18,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
         }
-        debug {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
-            applicationIdSuffix '.debug'
-            versionNameSuffix '-DEBUG'
-        }
+//        debug {
+//            minifyEnabled true
+////            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+//            applicationIdSuffix '.debug'
+//            versionNameSuffix '-DEBUG'
+//        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -38,9 +38,9 @@ android {
         test.java.srcDirs += 'src/test/kotlin'
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
     }
-//    kotlinOptions {
-//        jvmTarget = '1.8'
-//    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
