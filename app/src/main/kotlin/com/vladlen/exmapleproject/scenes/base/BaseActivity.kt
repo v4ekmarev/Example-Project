@@ -20,5 +20,4 @@ open class BaseActivity(@LayoutRes contentLayoutId: Int) : AppCompatActivity(con
     val activityComponent: ActivityComponent by lazy {
         applicationComponent.activityComponent().create(this)
     }
-
 }

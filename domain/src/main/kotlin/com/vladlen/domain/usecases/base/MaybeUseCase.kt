@@ -10,9 +10,9 @@ constructor(
 
     override fun execute(param: P): Maybe<R> =
         super.execute(param)
-            .apply {
+            .compose { transformer ->
                 useCaseScheduler?.let {
-                    this.subscribeOn(it.run).observeOn(it.post)
-                }
+                    transformer.subscribeOn(it.run).observeOn(it.post)
+                } ?: transformer
             }
 }
