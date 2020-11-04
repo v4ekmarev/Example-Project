@@ -12,7 +12,7 @@ class BookFavoriteListViewModel @Inject constructor(
     private val getFavoriteBookUseCase: GetFavoriteBookUseCase,
     private val saveFavoriteBookUseCase: SaveFavoriteBookUseCase,
     private val router: BookFavoriteListRouter
-    ) : BaseViewModel() {
+) : BaseViewModel() {
 
     private var favoriteBookListLiveData = MutableLiveData<ResultState<Collection<Book>>>()
 
@@ -34,15 +34,8 @@ class BookFavoriteListViewModel @Inject constructor(
 
     fun updateFavoriteBook(book: Book) {
         saveFavoriteBookUseCase.execute(book)
-            .doOnSubscribe {
-                compositeDisposable.add(it)
-            }
-            .subscribe({
-
-            }, {
-
-            })
+            .subscribe()
     }
 
-    fun router() : BookFavoriteListRouter = router
+    fun router(): BookFavoriteListRouter = router
 }

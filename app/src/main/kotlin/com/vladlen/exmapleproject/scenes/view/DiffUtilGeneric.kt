@@ -20,8 +20,6 @@ class DiffUtilGeneric<T>(
     }
 
     override fun areContentsTheSame(oldItem: Int, newItem: Int): Boolean {
-        val old = oldList[oldItem]
-        val new = newList[newItem]
-        return old == new
+        return false
     }
 }

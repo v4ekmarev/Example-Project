@@ -11,6 +11,7 @@ import com.vladlen.exmapleproject.scenes.base.BaseFragment
 import com.vladlen.exmapleproject.scenes.booklist.adapter.BooksAdapter
 import com.vladlen.exmapleproject.scenes.view.OnClickItem
 import com.vladlen.exmapleproject.scenes.view.ResultState
+import io.reactivex.Single
 import kotlinx.android.synthetic.main.framgnet_book_list.*
 
 class BookListFragment : BaseFragment(R.layout.framgnet_book_list) {
